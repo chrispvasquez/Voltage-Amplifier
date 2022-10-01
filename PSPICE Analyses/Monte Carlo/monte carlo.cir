@@ -1,0 +1,3641 @@
+Monte Carlo Analysis
+*By Chris Vasquez
+
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 0.003 0 
+.MC 100 TRAN V([2]) YMAX OUTPUT ALL SEED=17366 
+.OPTIONS DISTRIBUTION GAUSS
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source VOLTAGE AMPLIFIER
+.EXTERNAL OUTPUT 2
+.EXTERNAL OUTPUT 1
+Q_Q4         2 1 N47435 Q2N2222
+R_R3         0 1 R_R3 100k TC=25PPM,0 
+.model        R_R3 RES R=1 DEV=0.1% TC1=25PPM TC2=0
+R_R4         0 N47435 R_R4 400 TC=25PPM,0 
+.model        R_R4 RES R=1 DEV=0.1% TC1=25PPM TC2=0
+R_R2         2 N47261 R_R2 3k TC=50PPM,0 
+.model        R_R2 RES R=1 DEV=0.1% TC1=50PPM TC2=0
+C_C2         0 N47435  330u  TC=0,0 
+R_R1         1 N47261 R_R1 300k TC=25PPM,0 
+.model        R_R1 RES R=1 DEV=0.1% TC1=25PPM TC2=0
+V_V1         N47407 0  AC 0.01
++SIN 0 0.01 1k 0 0 0
+C_C1         1 N47407  330u  TC=0,0 
+V_V2         N47261 0 9Vdc
+
+**** RESUMING sim.cir ****
+.END
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     BJT MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               Q2N2222         
+               NPN             
+       LEVEL    1            
+          IS   14.340000E-15 
+          BF  255.9          
+          NF    1            
+         VAF   74.03         
+         IKF     .2847       
+         ISE   14.340000E-15 
+          NE    1.307        
+          BR    6.092        
+          NR    1            
+         ISS    0            
+          RB   10            
+          RE    0            
+          RC    1            
+         CJE   22.010000E-12 
+         VJE     .75         
+         MJE     .377        
+         CJC    7.306000E-12 
+         VJC     .75         
+         MJC     .3416       
+        XCJC    1            
+         CJS    0            
+         VJS     .75         
+          TF  411.100000E-12 
+         XTF    3            
+         VTF    1.7          
+         ITF     .6          
+          TR   46.910000E-09 
+         XTB    1.5          
+          KF    0            
+          AF    1            
+          CN    2.42         
+           D     .87         
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     Resistor MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               R_R3            R_R4            R_R2            R_R1            
+           R    1               1               1               1            
+         TC1   25.000000E-12   25.000000E-12   50.000000E-12   25.000000E-12 
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO NOMINAL
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3953  (    2)    3.5257  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7345 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.850E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 2
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3955  (    2)    3.5228  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7346 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.849E-03
+
+    TOTAL POWER DISSIPATION   1.66E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 3
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3972  (    2)    3.5013  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7362 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.858E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 4
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3948  (    2)    3.5352  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7340 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.848E-03
+
+    TOTAL POWER DISSIPATION   1.66E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 5
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3977  (    2)    3.5119  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7368 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.856E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 6
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3935  (    2)    3.5406  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7327 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.846E-03
+
+    TOTAL POWER DISSIPATION   1.66E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 7
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3968  (    2)    3.5056  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7359 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.854E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 8
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3956  (    2)    3.5327  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7347 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.849E-03
+
+    TOTAL POWER DISSIPATION   1.66E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 9
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3950  (    2)    3.5223  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7341 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.851E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 10
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3939  (    2)    3.5490  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7331 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.845E-03
+
+    TOTAL POWER DISSIPATION   1.66E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 11
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3951  (    2)    3.5248  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7342 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.851E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 12
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3926  (    2)    3.5553  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7318 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.841E-03
+
+    TOTAL POWER DISSIPATION   1.66E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 13
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3951  (    2)    3.5220  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7342 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.851E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 14
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3942  (    2)    3.5410  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7334 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.845E-03
+
+    TOTAL POWER DISSIPATION   1.66E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 15
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3971  (    2)    3.5205  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7361 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.855E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 16
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3948  (    2)    3.5242  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7340 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.850E-03
+
+    TOTAL POWER DISSIPATION   1.66E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 17
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3962  (    2)    3.5286  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7353 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.852E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 18
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3951  (    2)    3.5229  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7342 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.853E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 19
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3937  (    2)    3.5413  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7329 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.844E-03
+
+    TOTAL POWER DISSIPATION   1.66E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 20
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3940  (    2)    3.5398  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7332 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.849E-03
+
+    TOTAL POWER DISSIPATION   1.66E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 21
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3938  (    2)    3.5407  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7330 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.845E-03
+
+    TOTAL POWER DISSIPATION   1.66E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 22
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3959  (    2)    3.5348  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7350 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.849E-03
+
+    TOTAL POWER DISSIPATION   1.66E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 23
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3930  (    2)    3.5362  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7322 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.846E-03
+
+    TOTAL POWER DISSIPATION   1.66E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 24
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3951  (    2)    3.5322  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7342 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.851E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 25
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3935  (    2)    3.5465  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7327 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.845E-03
+
+    TOTAL POWER DISSIPATION   1.66E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 26
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3967  (    2)    3.5160  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7358 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.852E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 27
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3957  (    2)    3.5251  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7349 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.850E-03
+
+    TOTAL POWER DISSIPATION   1.66E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 28
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3948  (    2)    3.5261  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7339 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.851E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 29
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3952  (    2)    3.5334  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7343 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.851E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 30
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3949  (    2)    3.5186  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7340 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.850E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 31
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3970  (    2)    3.5269  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7362 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.851E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 32
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3954  (    2)    3.5284  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7345 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.849E-03
+
+    TOTAL POWER DISSIPATION   1.66E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 33
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3956  (    2)    3.5214  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7347 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.851E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 34
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3944  (    2)    3.5214  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7335 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.849E-03
+
+    TOTAL POWER DISSIPATION   1.66E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 35
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3963  (    2)    3.5212  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7354 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.850E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 36
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3943  (    2)    3.5369  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7335 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.847E-03
+
+    TOTAL POWER DISSIPATION   1.66E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 37
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3954  (    2)    3.5215  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7345 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.851E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 38
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3948  (    2)    3.5459  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7340 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.848E-03
+
+    TOTAL POWER DISSIPATION   1.66E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 39
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3936  (    2)    3.5288  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7328 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.846E-03
+
+    TOTAL POWER DISSIPATION   1.66E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 40
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3967  (    2)    3.5120  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7358 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.852E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 41
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3964  (    2)    3.5176  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7355 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.852E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 42
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3974  (    2)    3.5239  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7366 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.851E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 43
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3938  (    2)    3.5355  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7330 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.843E-03
+
+    TOTAL POWER DISSIPATION   1.66E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 44
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3940  (    2)    3.5210  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7332 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.849E-03
+
+    TOTAL POWER DISSIPATION   1.66E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 45
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3947  (    2)    3.5231  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7338 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.849E-03
+
+    TOTAL POWER DISSIPATION   1.66E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 46
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3959  (    2)    3.5220  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7349 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.854E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 47
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3966  (    2)    3.5067  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7357 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.854E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 48
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3952  (    2)    3.5308  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7343 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.851E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 49
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3968  (    2)    3.5172  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7359 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.852E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 50
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3962  (    2)    3.5135  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7354 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.849E-03
+
+    TOTAL POWER DISSIPATION   1.66E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 51
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3966  (    2)    3.5062  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7356 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.855E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 52
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3964  (    2)    3.5244  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7356 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.850E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 53
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3966  (    2)    3.5095  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7356 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.855E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 54
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3960  (    2)    3.5218  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7352 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.851E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 55
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3968  (    2)    3.5111  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7359 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.855E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 56
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3959  (    2)    3.5139  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7350 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.851E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 57
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3967  (    2)    3.5188  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7358 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.854E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 58
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3971  (    2)    3.5252  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7362 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.854E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 59
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3963  (    2)    3.5139  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7354 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.854E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 60
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3957  (    2)    3.5330  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7348 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.851E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 61
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3965  (    2)    3.5102  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7355 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.854E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 62
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3944  (    2)    3.5341  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7335 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.848E-03
+
+    TOTAL POWER DISSIPATION   1.66E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 63
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3960  (    2)    3.5146  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7351 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.853E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 64
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3947  (    2)    3.5219  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7338 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.849E-03
+
+    TOTAL POWER DISSIPATION   1.66E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 65
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3947  (    2)    3.5346  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7338 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.848E-03
+
+    TOTAL POWER DISSIPATION   1.66E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 66
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3960  (    2)    3.5156  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7351 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.853E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 67
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3979  (    2)    3.5192  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7370 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.852E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 68
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3938  (    2)    3.5274  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7330 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.849E-03
+
+    TOTAL POWER DISSIPATION   1.66E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 69
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3943  (    2)    3.5304  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7334 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.849E-03
+
+    TOTAL POWER DISSIPATION   1.66E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 70
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3931  (    2)    3.5247  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7323 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.846E-03
+
+    TOTAL POWER DISSIPATION   1.66E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 71
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3947  (    2)    3.5296  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7339 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.848E-03
+
+    TOTAL POWER DISSIPATION   1.66E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 72
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3932  (    2)    3.5340  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7324 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.845E-03
+
+    TOTAL POWER DISSIPATION   1.66E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 73
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3954  (    2)    3.5289  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7346 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.849E-03
+
+    TOTAL POWER DISSIPATION   1.66E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 74
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3925  (    2)    3.5299  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7317 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.847E-03
+
+    TOTAL POWER DISSIPATION   1.66E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 75
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3936  (    2)    3.5385  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7328 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.846E-03
+
+    TOTAL POWER DISSIPATION   1.66E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 76
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3947  (    2)    3.5146  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7338 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.852E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 77
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3950  (    2)    3.5304  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7341 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.849E-03
+
+    TOTAL POWER DISSIPATION   1.66E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 78
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3959  (    2)    3.5080  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7350 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.855E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 79
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3961  (    2)    3.5216  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7352 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.851E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 80
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3972  (    2)    3.5165  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7363 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.852E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 81
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3944  (    2)    3.5298  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7335 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.848E-03
+
+    TOTAL POWER DISSIPATION   1.66E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 82
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3953  (    2)    3.5249  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7344 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.847E-03
+
+    TOTAL POWER DISSIPATION   1.66E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 83
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3938  (    2)    3.5318  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7330 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.847E-03
+
+    TOTAL POWER DISSIPATION   1.66E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 84
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3951  (    2)    3.5220  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7342 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.850E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 85
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3954  (    2)    3.5249  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7345 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.852E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 86
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3966  (    2)    3.5087  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7356 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.855E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 87
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3949  (    2)    3.5354  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7341 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.848E-03
+
+    TOTAL POWER DISSIPATION   1.66E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 88
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3971  (    2)    3.5055  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7361 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.855E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 89
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3941  (    2)    3.5307  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7333 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.847E-03
+
+    TOTAL POWER DISSIPATION   1.66E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 90
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3946  (    2)    3.5181  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7337 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.850E-03
+
+    TOTAL POWER DISSIPATION   1.66E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 91
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3946  (    2)    3.5225  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7337 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.850E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 92
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3944  (    2)    3.5328  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7336 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.845E-03
+
+    TOTAL POWER DISSIPATION   1.66E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 93
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3926  (    2)    3.5416  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7319 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.843E-03
+
+    TOTAL POWER DISSIPATION   1.66E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 94
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3961  (    2)    3.5267  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7353 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.849E-03
+
+    TOTAL POWER DISSIPATION   1.66E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 95
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3932  (    2)    3.5510  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7324 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.845E-03
+
+    TOTAL POWER DISSIPATION   1.66E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 96
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3978  (    2)    3.5053  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7368 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.856E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 97
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3961  (    2)    3.5334  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7352 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.851E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 98
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3964  (    2)    3.5184  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7355 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.852E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 99
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3962  (    2)    3.5221  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7352 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.854E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO PASS 100
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.3961  (    2)    3.5193  (N47261)    9.0000 (N47407)    0.0000     
+
+(N47435)     .7352 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.853E-03
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     SORTED DEVIATIONS OF V(2)        TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO SUMMARY
+
+******************************************************************************
+
+
+
+
+
+Mean Deviation =  114.9600E-06
+Sigma          =     .0192
+
+ RUN                    MAX DEVIATION FROM NOMINAL
+
+Pass   12                .0596  (3.10 sigma)  higher  at T =    1.2438E-03
+                        ( 104.02% of Nominal)
+
+Pass   95                .0543  (2.82 sigma)  higher  at T =    1.2439E-03
+                        ( 103.66% of Nominal)
+
+Pass   10                .0518  (2.69 sigma)  higher  at T =    1.2439E-03
+                        ( 103.49% of Nominal)
+
+Pass   25                .0486  (2.53 sigma)  higher  at T =    1.2439E-03
+                        ( 103.28% of Nominal)
+
+Pass   38                .0481  (2.50 sigma)  higher  at T =    1.2439E-03
+                        ( 103.24% of Nominal)
+
+Pass   21                .0404  (2.10 sigma)  higher  at T =    1.2438E-03
+                        ( 102.72% of Nominal)
+
+Pass   20                .0393  (2.04 sigma)  higher  at T =    1.2438E-03
+                        ( 102.65% of Nominal)
+
+Pass    3                .0326  (1.69 sigma)  lower  at T =    1.2888E-03
+                        (  97.564% of Nominal)
+
+Pass   96                .0286  (1.49 sigma)  lower  at T =    2.6544E-03
+                        (  99.385% of Nominal)
+
+Pass   88                .0285  (1.48 sigma)  lower  at T =    2.6544E-03
+                        (  99.386% of Nominal)
+
+Pass    7                .0283  (1.47 sigma)  lower  at T =    2.6544E-03
+                        (  99.39 % of Nominal)
+
+Pass   51                .0278  (1.44 sigma)  lower  at T =    2.6544E-03
+                        (  99.402% of Nominal)
+
+Pass   47                .0274  (1.42 sigma)  lower  at T =    2.6544E-03
+                        (  99.41 % of Nominal)
+
+Pass   78                .0262  (1.36 sigma)  lower  at T =    2.6544E-03
+                        (  99.435% of Nominal)
+
+Pass   86                .0256  (1.33 sigma)  lower  at T =    2.6544E-03
+                        (  99.448% of Nominal)
+
+Pass   53                .0249  (1.29 sigma)  lower  at T =    2.6544E-03
+                        (  99.464% of Nominal)
+
+Pass   61                .0243  (1.26 sigma)  lower  at T =    2.6544E-03
+                        (  99.477% of Nominal)
+
+Pass   55                .0235  (1.22 sigma)  lower  at T =    2.6544E-03
+                        (  99.493% of Nominal)
+
+Pass   93                .0232  (1.20 sigma)  higher  at T =    2.2940E-03
+                        ( 101.71% of Nominal)
+
+Pass    5                .0228  (1.18 sigma)  lower  at T =    2.6544E-03
+                        (  99.51 % of Nominal)
+
+Pass   40                .0228  (1.18 sigma)  lower  at T =    2.6544E-03
+                        (  99.51 % of Nominal)
+
+Pass   19                .0227  (1.18 sigma)  higher  at T =    2.2940E-03
+                        ( 101.68% of Nominal)
+
+Pass   14                .0223  (1.16 sigma)  higher  at T =    2.2940E-03
+                        ( 101.65% of Nominal)
+
+Pass    6                .0219  (1.14 sigma)  higher  at T =    2.2940E-03
+                        ( 101.62% of Nominal)
+
+Pass   50                .0216  (1.12 sigma)  lower  at T =    2.6544E-03
+                        (  99.535% of Nominal)
+
+Pass   56                .0211  (1.10 sigma)  lower  at T =    2.6544E-03
+                        (  99.546% of Nominal)
+
+Pass   59                .021   (1.09 sigma)  lower  at T =    2.6544E-03
+                        (  99.548% of Nominal)
+
+Pass   76                .0204  (1.06 sigma)  lower  at T =    2.6544E-03
+                        (  99.56 % of Nominal)
+
+Pass   63                .0204  (1.06 sigma)  lower  at T =    2.6544E-03
+                        (  99.561% of Nominal)
+
+Pass   66                .0196  (1.02 sigma)  lower  at T =    2.6544E-03
+                        (  99.579% of Nominal)
+
+Pass   26                .0192  (1.00 sigma)  lower  at T =    2.6544E-03
+                        (  99.586% of Nominal)
+
+Pass   80                .0188  ( .98 sigma)  lower  at T =    2.7144E-03
+                        (  99.626% of Nominal)
+
+Pass   75                .0187  ( .97 sigma)  higher  at T =    2.2940E-03
+                        ( 101.38% of Nominal)
+
+Pass   49                .0182  ( .95 sigma)  lower  at T =    2.7144E-03
+                        (  99.637% of Nominal)
+
+Pass   41                .0179  ( .93 sigma)  lower  at T =    2.7144E-03
+                        (  99.644% of Nominal)
+
+Pass   67                .0166  ( .86 sigma)  lower  at T =    2.7144E-03
+                        (  99.67 % of Nominal)
+
+Pass   36                .0163  ( .85 sigma)  higher  at T =    2.2940E-03
+                        ( 101.21% of Nominal)
+
+Pass   23                .0155  ( .80 sigma)  higher  at T =    2.2940E-03
+                        ( 101.14% of Nominal)
+
+Pass   43                .0142  ( .74 sigma)  higher  at T =    2.2478E-03
+                        ( 100.94% of Nominal)
+
+Pass   87                .0142  ( .74 sigma)  higher  at T =    2.2941E-03
+                        ( 101.04% of Nominal)
+
+Pass    4                .0139  ( .72 sigma)  higher  at T =    2.2940E-03
+                        ( 101.03% of Nominal)
+
+Pass   22                .0134  ( .69 sigma)  higher  at T =    2.2941E-03
+                        ( 100.99% of Nominal)
+
+Pass   65                .013   ( .68 sigma)  higher  at T =    2.2941E-03
+                        ( 100.96% of Nominal)
+
+Pass   62                .0123  ( .64 sigma)  higher  at T =    2.2941E-03
+                        ( 100.91% of Nominal)
+
+Pass   72                .0122  ( .63 sigma)  higher  at T =    2.2941E-03
+                        ( 100.9 % of Nominal)
+
+Pass   29                .0114  ( .59 sigma)  higher  at T =    2.2941E-03
+                        ( 100.84% of Nominal)
+
+Pass   97                .0113  ( .59 sigma)  higher  at T =    2.2941E-03
+                        ( 100.83% of Nominal)
+
+Pass   60                .0109  ( .56 sigma)  higher  at T =    2.2941E-03
+                        ( 100.8 % of Nominal)
+
+Pass    8                .0103  ( .54 sigma)  higher  at T =    2.2941E-03
+                        ( 100.76% of Nominal)
+
+Pass   92                .0102  ( .53 sigma)  higher  at T =    2.2941E-03
+                        ( 100.75% of Nominal)
+
+Pass   90                .0102  ( .53 sigma)  lower  at T =  291.1300E-06
+                        (  99.226% of Nominal)
+
+Pass   98              9.6815E-03  ( .50 sigma)  lower  at T =  196.7900E-06
+                        (  99.324% of Nominal)
+
+Pass   24              9.6788E-03  ( .50 sigma)  higher  at T =    2.2941E-03
+                        ( 100.71% of Nominal)
+
+Pass   30              9.5298E-03  ( .50 sigma)  lower  at T =  291.1300E-06
+                        (  99.275% of Nominal)
+
+Pass   83              9.0028E-03  ( .47 sigma)  higher  at T =    2.2941E-03
+                        ( 100.66% of Nominal)
+
+Pass   57              8.9997E-03  ( .47 sigma)  lower  at T =  196.7900E-06
+                        (  99.371% of Nominal)
+
+Pass  100              8.4659E-03  ( .44 sigma)  lower  at T =  196.7900E-06
+                        (  99.409% of Nominal)
+
+Pass   48              7.5701E-03  ( .39 sigma)  higher  at T =    2.2941E-03
+                        ( 100.56% of Nominal)
+
+Pass   89              7.2496E-03  ( .38 sigma)  higher  at T =    2.2478E-03
+                        ( 100.48% of Nominal)
+
+Pass   69              7.0006E-03  ( .36 sigma)  higher  at T =    2.2941E-03
+                        ( 100.52% of Nominal)
+
+Pass   77              6.9305E-03  ( .36 sigma)  higher  at T =    2.2941E-03
+                        ( 100.51% of Nominal)
+
+Pass   15              6.6451E-03  ( .35 sigma)  lower  at T =  196.7900E-06
+                        (  99.536% of Nominal)
+
+Pass   44              6.4315E-03  ( .33 sigma)  lower  at T =  291.1500E-06
+                        (  99.511% of Nominal)
+
+Pass   74              6.2480E-03  ( .32 sigma)  higher  at T =    2.2478E-03
+                        ( 100.41% of Nominal)
+
+Pass   81              5.9923E-03  ( .31 sigma)  higher  at T =    2.2941E-03
+                        ( 100.44% of Nominal)
+
+Pass   35              5.9564E-03  ( .31 sigma)  lower  at T =  196.7900E-06
+                        (  99.584% of Nominal)
+
+Pass   34              5.8877E-03  ( .31 sigma)  lower  at T =  291.1500E-06
+                        (  99.552% of Nominal)
+
+Pass   71              5.6654E-03  ( .29 sigma)  higher  at T =    2.2478E-03
+                        ( 100.37% of Nominal)
+
+Pass   33              5.6145E-03  ( .29 sigma)  lower  at T =  196.7900E-06
+                        (  99.608% of Nominal)
+
+Pass   37              5.4948E-03  ( .29 sigma)  lower  at T =  196.7900E-06
+                        (  99.616% of Nominal)
+
+Pass   79              5.4352E-03  ( .28 sigma)  lower  at T =  196.7900E-06
+                        (  99.62 % of Nominal)
+
+Pass   64              5.1572E-03  ( .27 sigma)  lower  at T =  291.1500E-06
+                        (  99.608% of Nominal)
+
+Pass   54              5.1084E-03  ( .27 sigma)  lower  at T =  196.7900E-06
+                        (  99.643% of Nominal)
+
+Pass   84              4.9921E-03  ( .26 sigma)  lower  at T =  291.1500E-06
+                        (  99.62 % of Nominal)
+
+Pass   13              4.8200E-03  ( .25 sigma)  lower  at T =  196.7900E-06
+                        (  99.663% of Nominal)
+
+Pass   46              4.7332E-03  ( .25 sigma)  lower  at T =  196.7900E-06
+                        (  99.669% of Nominal)
+
+Pass   73              4.7159E-03  ( .25 sigma)  higher  at T =    2.2941E-03
+                        ( 100.35% of Nominal)
+
+Pass   99              4.6093E-03  ( .24 sigma)  lower  at T =  196.7900E-06
+                        (  99.678% of Nominal)
+
+Pass    9              4.5245E-03  ( .24 sigma)  lower  at T =  196.7900E-06
+                        (  99.684% of Nominal)
+
+Pass   39              4.5043E-03  ( .23 sigma)  higher  at T =    2.2478E-03
+                        ( 100.3 % of Nominal)
+
+Pass   17              4.3452E-03  ( .23 sigma)  higher  at T =    2.2941E-03
+                        ( 100.32% of Nominal)
+
+Pass   91              4.2080E-03  ( .22 sigma)  lower  at T =  291.1600E-06
+                        (  99.68 % of Nominal)
+
+Pass    2              3.9424E-03  ( .20 sigma)  lower  at T =  291.1600E-06
+                        (  99.7  % of Nominal)
+
+Pass   32              3.9264E-03  ( .20 sigma)  higher  at T =    2.2941E-03
+                        ( 100.29% of Nominal)
+
+Pass   18              3.5642E-03  ( .19 sigma)  lower  at T =  196.7900E-06
+                        (  99.751% of Nominal)
+
+Pass   45              3.4978E-03  ( .18 sigma)  lower  at T =  291.1600E-06
+                        (  99.734% of Nominal)
+
+Pass   68              2.5699E-03  ( .13 sigma)  higher  at T =    2.2478E-03
+                        ( 100.17% of Nominal)
+
+Pass   42              2.3611E-03  ( .12 sigma)  lower  at T =  196.7900E-06
+                        (  99.835% of Nominal)
+
+Pass   16              2.0372E-03  ( .11 sigma)  lower  at T =  291.1600E-06
+                        (  99.845% of Nominal)
+
+Pass   31              1.8095E-03  ( .09 sigma)  higher  at T =    1.2894E-03
+                        ( 100.14% of Nominal)
+
+Pass   52              1.6867E-03  ( .09 sigma)  lower  at T =  196.7900E-06
+                        (  99.882% of Nominal)
+
+Pass   70              1.5880E-03  ( .08 sigma)  lower  at T =    1.3386E-03
+                        (  99.89 % of Nominal)
+
+Pass   94              1.3566E-03  ( .07 sigma)  higher  at T =    2.2942E-03
+                        ( 100.1 % of Nominal)
+
+Pass   82              1.2527E-03  ( .07 sigma)  lower  at T =    1.3478E-03
+                        (  99.913% of Nominal)
+
+Pass   11              1.1091E-03  ( .06 sigma)  lower  at T =  196.7900E-06
+                        (  99.923% of Nominal)
+
+Pass   85              1.0152E-03  ( .05 sigma)  lower  at T =  196.7900E-06
+                        (  99.929% of Nominal)
+
+Pass   27            794.6500E-06  ( .04 sigma)  lower  at T =  291.1700E-06
+                        (  99.94 % of Nominal)
+
+Pass   28            684.8600E-06  ( .04 sigma)  higher  at T =    2.2941E-03
+                        ( 100.05% of Nominal)
+
+Pass   58            476.8400E-06  ( .02 sigma)  lower  at T =    2.0078E-03
+                        (  99.989% of Nominal)
+
+
+
+          JOB CONCLUDED
+
+**** 04/30/20 15:53:02 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+  License check-out time            =        3.02
+  Total job time (using Solver 1)   =         .33
+

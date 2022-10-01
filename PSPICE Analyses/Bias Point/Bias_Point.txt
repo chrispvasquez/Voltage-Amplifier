@@ -1,0 +1,189 @@
+Bias Point Analysis
+*By Chris Vasquez
+
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+* From [PSPICE NETLIST] section of C:\Users\chris\AppData\Roaming\SPB_Data\cdssetup\OrCAD_PSpice\17.2.0\PSpice.ini file:
+.lib "nom.lib" 
+
+*Analysis directives: 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source VOLTAGE AMPLIFIER
+Q_Q4         N50366 N50802 N50635 Q2N2222
+R_R3         N47507 N50773 R_R3 100k TC=25PPM,0 
+.model        R_R3 RES R=1 DEV=0.1% TC1=25PPM TC2=0
+R_R4         0 N47503 R_R4 400 TC=25PPM,0 
+.model        R_R4 RES R=1 DEV=0.1% TC1=25PPM TC2=0
+R_R2         N50357 N48056 R_R2 3k TC=50PPM,0 
+.model        R_R2 RES R=1 DEV=0.1% TC1=50PPM TC2=0
+C_C2         0 N47503  330u  TC=0,0 
+R_R1         N47323 N47261 R_R1 300k TC=25PPM,0 
+.model        R_R1 RES R=1 DEV=0.1% TC1=25PPM TC2=0
+V_V1         N47411 N47507  AC 0.01
++SIN 0 0 1k 0 0 0
+C_C1         N47323 N50713  330u  TC=0,0 
+V_V2         N50600 0 9Vdc
+V_PRINT1         N50357 N50366 0V
+        
+.PRINT        TRAN I(V_PRINT1)   
+V_PRINT2         N47261 N48056 0V
+        
+.PRINT        TRAN I(V_PRINT2)   
+V_PRINT3         N48056 N50600 0V
+        
+.PRINT        TRAN I(V_PRINT3)   
+V_PRINT4         N47507 0 0V
+        
+.PRINT        TRAN I(V_PRINT4)   
+V_PRINT5         N50635 N47503 0V
+        
+.PRINT        TRAN I(V_PRINT5)   
+V_PRINT6         N47411 N50713 0V
+        
+.PRINT        TRAN I(V_PRINT6)   
+V_PRINT7         N47323 N50773 0V
+        
+.PRINT        TRAN I(V_PRINT7)   
+V_PRINT8         N47323 N50802 0V
+        
+.PRINT        TRAN I(V_PRINT8)   
+
+**** RESUMING sim.cir ****
+.END
+
+**** 04/30/20 15:21:12 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     BJT MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               Q2N2222         
+               NPN             
+       LEVEL    1            
+          IS   14.340000E-15 
+          BF  255.9          
+          NF    1            
+         VAF   74.03         
+         IKF     .2847       
+         ISE   14.340000E-15 
+          NE    1.307        
+          BR    6.092        
+          NR    1            
+         ISS    0            
+          RB   10            
+          RE    0            
+          RC    1            
+         CJE   22.010000E-12 
+         VJE     .75         
+         MJE     .377        
+         CJC    7.306000E-12 
+         VJC     .75         
+         MJC     .3416       
+        XCJC    1            
+         CJS    0            
+         VJS     .75         
+          TF  411.100000E-12 
+         XTF    3            
+         VTF    1.7          
+         ITF     .6          
+          TR   46.910000E-09 
+         XTB    1.5          
+          KF    0            
+          AF    1            
+          CN    2.42         
+           D     .87         
+
+
+**** 04/30/20 15:21:12 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     Resistor MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               R_R3            R_R4            R_R2            R_R1            
+           R    1               1               1               1            
+         TC1   25.000000E-12   25.000000E-12   50.000000E-12   25.000000E-12 
+
+
+**** 04/30/20 15:21:12 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     SMALL SIGNAL BIAS SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(N47261)    9.0000 (N47323)    1.3953 (N47411)    0.0000 (N47503)     .7345     
+
+(N47507)    0.0000 (N48056)    9.0000 (N50357)    3.5257 (N50366)    3.5257     
+
+(N50600)    9.0000 (N50635)     .7345 (N50713)    0.0000 (N50773)    1.3953     
+
+(N50802)    1.3953 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2        -1.850E-03
+    V_PRINT1     1.825E-03
+    V_PRINT2    -2.535E-05
+    V_PRINT3    -1.850E-03
+    V_PRINT4     1.395E-05
+    V_PRINT5     1.836E-03
+    V_PRINT6     0.000E+00
+    V_PRINT7     1.395E-05
+    V_PRINT8     1.140E-05
+
+    TOTAL POWER DISSIPATION   1.67E-02  WATTS
+
+
+
+          JOB CONCLUDED
+
+**** 04/30/20 15:21:12 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-sim"  [ c:\users\chris\documents\pspice\voltage amplifier-pspicefiles\schematic1\sim.sim ] 
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+  Total job time (using Solver 1)   =         .08
+

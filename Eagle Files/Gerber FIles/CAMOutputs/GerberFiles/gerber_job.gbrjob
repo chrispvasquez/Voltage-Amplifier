@@ -1,0 +1,24 @@
+{
+    "Header": {
+        "Comment": "All values are metric (mm)",
+        "CreationDate": "2020-05-01T08:03:46Z",
+        "GenerationSoftware": {
+            "Application": "EAGLE",
+            "Vendor": "Autodesk",
+            "Version": "9.6.1"
+        },
+        "Part": "Single"
+    },
+    "Overall": {
+        "BoardThickness": 1.671119,
+        "LayerNumber": 2,
+        "Name": {
+            "ProjectId": "Voltage_Amp"
+        },
+        "Owner": "Chris Vasquez <cvasqu6@lsu.edu>",
+        "Size": {
+            "X": 70.79,
+            "Y": 67.3
+        }
+    }
+}
